@@ -19,7 +19,7 @@ class Card extends React.Component {
     }
 }
 
-class App extends React.Component {
+class CardContainter extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -59,6 +59,6 @@ class App extends React.Component {
 // ========================================
 
 ReactDOM.render(
-    <App />,
+    <CardContainter />,
     document.getElementById('root')
 );
