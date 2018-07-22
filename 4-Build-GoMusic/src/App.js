@@ -26,7 +26,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    console.log('Component Did Mount Called: ' + new Date().toLocaleString());
     fetch('user.json')
       .then(res => res.json())
       .then((result) => {
