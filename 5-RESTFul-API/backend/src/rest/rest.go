@@ -1,9 +1,26 @@
 package rest
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+)
 
-func RunAPI() error {
+func RunAPI(address string) error {
 	r := gin.Default()
-
-	return r.Run(":8080")
+	//get products
+	//get promos
+	//post user sign in
+	//get user orders
+	//post user sign out
+	//post purchase charge
+	h, _ := NewHandler()
+	r.GET("/products", h.GetProducts)
+	r.GET("/promos", h.GetPromos)
+	userGroup := r.Group("/user")
+	{
+		userGroup.POST("/signin", h.SignIn)
+		userGroup.POST("/:id/signout", h.SignOut)
+		userGroup.GET("/:id/orders", h.GetOrders)
+		userGroup.POST("/charge", h.Charge)
+	}
+	return r.Run(address)
 }
