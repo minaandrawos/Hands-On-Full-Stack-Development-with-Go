@@ -10,6 +10,7 @@ type DBLayer interface {
 	GetCustomerByName(string, string) (models.Customer, error)
 	GetCustomerByID(int) (models.Customer, error)
 	GetProduct(uint) (models.Product, error)
+	AddUser(models.Customer) error
 	SignInUser(models.Customer) error
 	SignOutUserById(int) error
 	GetCustomerOrdersByID(int) ([]models.Order, error)
